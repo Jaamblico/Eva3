@@ -8,7 +8,6 @@ from time import sleep
 from pythonosc import osc_message_builder
 from pythonosc import udp_client
 
-os.environ["OPENAI_API_KEY"] = "sk-proj-2dJD2uplHnzT8GYH0RJAT3BlbkFJ9UYLzIs3rKBzotLyUbeO"
 
 #ecg value
 ecg = MCP3008(0)
