@@ -1,0 +1,18 @@
+live_loop :listen do
+  use_real_time
+  note = sync "/osc*/play_this"
+  note = octs(note[0],3)
+  use_random_seed note[0]
+  use_synth :tb303
+  play_chord chord(note[0], [:minor, :major].choose), cutoff: note[0]+10
+  sleep note[0]/60
+  with_fx :lpf, mix: 1, amp: 1 do
+    with_fx :ring_mod, mix: 1 do
+    use_synth :pluck
+4.times do
+    play chord(note[0],   ['7', 'maj', :minor7].choose).tick, cutoff: note[0], amp: note[0]/10, sustain: note[0]/100
+    sleep note[0]/160
+end
+end
+end
+end
